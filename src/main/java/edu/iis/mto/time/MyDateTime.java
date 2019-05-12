@@ -2,11 +2,11 @@ package edu.iis.mto.time;
 
 import org.joda.time.DateTime;
 
-public class FakeDateTime {
+public class MyDateTime {
 
     private DateTime dataTime;
 
-    public FakeDateTime() {
+    public MyDateTime() {
         dataTime = new DateTime();
     }
 

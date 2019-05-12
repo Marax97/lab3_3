@@ -12,7 +12,7 @@ public class Order {
     private State orderState;
     private List<OrderItem> items = new ArrayList<>();
     private DateTime subbmitionDate;
-    private FakeDateTime fakeDate;
+    private MyDateTime fakeDate;
 
     public Order() {
         orderState = State.CREATED;
@@ -67,7 +67,7 @@ public class Order {
 
     }
 
-    public void setFakeDataTime(FakeDateTime fakeDate) {
+    public void setFakeDataTime(MyDateTime fakeDate) {
         this.fakeDate = fakeDate;
     }
 
