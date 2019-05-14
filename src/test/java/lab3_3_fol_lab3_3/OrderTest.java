@@ -23,7 +23,7 @@ public class OrderTest {
     public void setUp() {
         order = new Order();
         myDate = new MyDateTime();
-        order.setFakeDataTime(myDate);
+        order.setMyDataTime(myDate);
     }
 
     @Test(expected = OrderExpiredException.class)

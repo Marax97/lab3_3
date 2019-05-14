@@ -67,7 +67,7 @@ public class Order {
 
     }
 
-    public void setFakeDataTime(MyDateTime fakeDate) {
+    public void setMyDataTime(MyDateTime fakeDate) {
         this.myDate = fakeDate;
     }
 
