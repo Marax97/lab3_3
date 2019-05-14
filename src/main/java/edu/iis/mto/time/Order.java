@@ -12,7 +12,7 @@ public class Order {
     private State orderState;
     private List<OrderItem> items = new ArrayList<>();
     private DateTime subbmitionDate;
-    private MyDateTime fakeDate;
+    private MyDateTime myDate;
 
     public Order() {
         orderState = State.CREATED;
@@ -30,13 +30,13 @@ public class Order {
         requireState(State.CREATED);
 
         orderState = State.SUBMITTED;
-        subbmitionDate = fakeDate.getDataTime();
+        subbmitionDate = myDate.getDataTime();
 
     }
 
     public void confirm() {
         requireState(State.SUBMITTED);
-        int hoursElapsedAfterSubmittion = Hours.hoursBetween(subbmitionDate, fakeDate.getDataTime())
+        int hoursElapsedAfterSubmittion = Hours.hoursBetween(subbmitionDate, myDate.getDataTime())
                                                .getHours();
         if (hoursElapsedAfterSubmittion > VALID_PERIOD_HOURS) {
             orderState = State.CANCELLED;
@@ -68,7 +68,7 @@ public class Order {
     }
 
     public void setFakeDataTime(MyDateTime fakeDate) {
-        this.fakeDate = fakeDate;
+        this.myDate = fakeDate;
     }
 
     public static enum State {
