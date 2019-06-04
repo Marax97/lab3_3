@@ -28,26 +28,26 @@ public class OrderTest {
 
     @Test(expected = OrderExpiredException.class)
     public void shouldThroExceptionIfDataOfSubmitIsBiggerThenDay() {
-        myDate.setNewDataTime(new DateTime(2019, 1, 1, 0, 0));
+        myDate.setNewDateTime(new DateTime(2019, 1, 1, 0, 0));
         order.submit();
-        myDate.setNewDataTime(new DateTime(2019, 1, 3, 0, 0));
+        myDate.setNewDateTime(new DateTime(2019, 1, 3, 0, 0));
         order.confirm();
     }
 
     @Test
     public void shouldCheckIfStateIsNotCancelledAfterConfirmToDateLowerThen24h() {
-        myDate.setNewDataTime(new DateTime(2019, 1, 1, 0, 0));
+        myDate.setNewDateTime(new DateTime(2019, 1, 1, 0, 0));
         order.submit();
-        myDate.setNewDataTime(new DateTime(2019, 1, 1, 0, 0));
+        myDate.setNewDateTime(new DateTime(2019, 1, 1, 0, 0));
         order.confirm();
         assertThat(order.getOrderState(), is(not(equalTo(State.CANCELLED))));
     }
 
     @Test
     public void shouldCheckIfStateIsNotCancelledAfterConfirmToDateEqualTo24h() {
-        myDate.setNewDataTime(new DateTime(2019, 1, 1, 0, 0));
+        myDate.setNewDateTime(new DateTime(2019, 1, 1, 0, 0));
         order.submit();
-        myDate.setNewDataTime(new DateTime(2019, 1, 2, 0, 0));
+        myDate.setNewDateTime(new DateTime(2019, 1, 2, 0, 0));
         order.confirm();
         assertThat(order.getOrderState(), is(not(equalTo(State.CANCELLED))));
     }

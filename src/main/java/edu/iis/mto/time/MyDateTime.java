@@ -2,7 +2,7 @@ package edu.iis.mto.time;
 
 import org.joda.time.DateTime;
 
-public class MyDateTime {
+public class MyDateTime implements DateTimeClock {
 
     private DateTime dataTime;
 
@@ -10,11 +10,12 @@ public class MyDateTime {
         dataTime = new DateTime();
     }
 
-    public void setNewDataTime(DateTime dataTime) {
+    public void setNewDateTime(DateTime dataTime) {
         this.dataTime = dataTime;
     }
 
-    public DateTime getDataTime() {
+    @Override
+    public DateTime getDateTime() {
         return dataTime;
     }
 }
